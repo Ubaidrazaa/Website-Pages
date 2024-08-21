@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block details %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* Center the heading on the page */
+        body {
+            
+            justify-content: center;
+            
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Calculator</h1>
+    <form method="POST">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            Please Enter The Value
+        </div>
+        {% endif %}<br>
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Value 1</label>
+          <input type="text" name="no1" value="{{M}}">
+        </div><br>
+        <div class="form-group">
+          <button type="submit">EVEN | ODD</button>
+        </div><br>
+        <div class="form-group">
+            <label>Output</label>
+            <input type="text" name="output" value="{{e}}">
+          </div><br>
+    </form>    
+</div>
+</body>
+</html>
+
+{% endblock %}

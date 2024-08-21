@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block details %}
+</br>
+<marquee onmouseover="stop()" onmouseout="start()">
+	{% for news in newsdata %}
+	   <a href="newsDetail/{{news.news_slug}}"> {{news.news_title}} </a> &nbsp;&nbsp;&nbsp;
+	{% endfor %}
+</marquee>
+<body>	
+	<main class="main-content">
+		<section class="section" id="home">
+			<h2 class="section-title">{{heading2}}</h2>
+			{% for l in mylist %}
+			<p class="section-text">{{forloop.counter}}{{l}}</p>
+			{% endfor %}
+		</section>
+		<section class="section" id="about">
+			<h2 class="section-title">This is the about section</h2>
+			<p class="section-text">This is some sample text.</p>
+		</section>
+		<section class="section" id="contact">
+			<h2 class="section-title">This is the contact section</h2>
+			<table border="1" cellpadding="10">
+				<tr>
+					<td>Name</td>
+					<td>Phone Number</td>
+					<td>Age</td>
+				</tr>
+
+				{% for d2 in enroll_detail %}
+				<tr>
+					<td>{{d2.name}}</td>
+					<td>{{d2.cell}}</td>
+					<td>{{d2.age}}</td>
+				</tr>
+				{% endfor %}
+			</table></br>
+
+			{% if digits|length > 0 %}
+			{% for g in digits %}
+ 
+              {% if g > 30 %}
+			     <div>{{g}}</div>
+              {% endif %}
+			{% endfor %}
+            {% else %}
+			 NO Data Found
+
+			{% endif %}
+		</section>
+	</main>
+	
+</body>
+{% endblock %}
